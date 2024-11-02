@@ -50,13 +50,13 @@ const generatePhotoId = createRandomGenerator(1, 25);
 const generatePhotoNumber = createRandomGenerator (1, 25);
 const generateCommentId =createRandomGenerator (1, 999);
 
-const createPhoto = () => ({
-  id: generatePhotoId(),
-  url: `photos/${ generatePhotoNumber() }.jpg`,
-  description: getRandomArrayElement(DESCRIPTIONS),
-  likes: getRandomInteger(15, 200),
-  comments: Array.from({length: getRandomInteger(0, 30)}, createComments)
-});
+// const createPhoto = () => ({
+//   id: generatePhotoId(),
+//   url: `photos/${ generatePhotoNumber() }.jpg`,
+//   description: getRandomArrayElement(DESCRIPTIONS),
+//   likes: getRandomInteger(15, 200),
+//   comments: Array.from({length: getRandomInteger(0, 30)}, createComments)
+// });
 
 const createComments = () => ({
   id: generateCommentId(),
@@ -65,8 +65,10 @@ const createComments = () => ({
   name: getRandomArrayElement(COMMENTS)
 });
 
-const createRandomPhotos = () => Array.from({length: PHOTOS_COUNT}, createRandomGenerator);
+const createRandomPhotos = () => Array.from({length: PHOTOS_COUNT}, createRandomGenerator, createComments);
 
 export {createRandomPhotos};
+
+// создать новую ветку
 
 
